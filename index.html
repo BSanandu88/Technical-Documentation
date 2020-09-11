@@ -1,0 +1,105 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+<div class="main-body">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <nav id="navbar">
+    <header>JS Documentation</header>
+    <a href="#Introduction" class="nav-link">Introduction</a>
+    <a href="#JavaScript" class="nav-link">JavaScript</a>
+    <a href="#Variables" class="nav-link">Variables</a>
+    <a href="#Scopes" class="nav-link">Scopes</a>
+    <a href="#Functions" class="nav-link">Functions</a>
+
+  </nav>
+  <main id="main-doc">
+    <section class="main-section" id="Introduction">
+      <header>Introduction</header>
+      <p>JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm.</p>
+      <p>As a multi-paradigm language, JavaScript supports event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM). However, the language itself does not include any input/output (I/O), such as networking, storage, or graphics facilities, as the host environment (usually a web browser) provides those APIs.</p>
+    </section>
+    <section class="main-section" id="JavaScript">
+      <header>JavaScript</header>
+      <p>JavaScript and Java are similar in some ways but fundamentally different in some others. The JavaScript language resembles Java but does not have Java's static typing and strong type checking. JavaScript follows most Java expression syntax, naming conventions and basic control-flow constructs which was the reason why it was renamed from LiveScript to JavaScript</p>
+      <p>In contrast to Java's compile-time system of classes built by declarations, JavaScript supports a runtime system based on a small number of data types representing numeric, Boolean, and string values. JavaScript has a prototype-based object model instead of the more common class-based object model. The prototype-based model provides dynamic inheritance; that is, what is inherited can vary for individual objects. JavaScript also supports functions without any special declarative requirements. Functions can be properties of objects, executing as loosely typed methods.</p>
+      <code>
+        (function(){
+        "use strict";
+        /* Start of your code */
+        function greetMe(yourName) {
+        alert('Hello ' + yourName);
+        }
+        greetMe('World');
+        /* End of your code */
+        })();
+      </code>
+      <ul>
+        <li>Variables</li>
+        <li>Functions</li>
+        <li>Control Flow</li>
+        <li>Promises</li>
+        <li>The strange part</li>
+      </ul>
+    </section>
+    <section class="main-section" id="Variables">
+      <header>Variables</header>
+      <p>You use variables as symbolic names for values in your application. The names of variables, called identifiers, conform to certain rules.</p>
+      <p>A JavaScript identifier must start with a letter, underscore (_), or dollar sign ($); subsequent characters can also be digits (0-9). Because JavaScript is case sensitive, letters include the characters "A" through "Z" (uppercase) and the characters "a" through "z" (lowercase).</p>
+      <code>
+        var a;
+        console.log('The value of a is ' + a); // The value of a is undefined
+        console.log('The value of b is ' + b); // The value of b is undefined
+        var b;
+        // This one may puzzle you until you read 'Variable hoisting' below
+        console.log('The value of c is ' + c); // Uncaught ReferenceError: c is not defined
+        let x;
+        console.log('The value of x is ' + x); // The value of x is undefined
+        console.log('The value of y is ' + y); // Uncaught ReferenceError: y is not defined
+        let y;
+      </code>
+    </section>
+    <section class="main-section" id="Scopes">
+      <header>Scopes</header>
+      <p>When you declare a variable outside of any function, it is called a global variable, because it is available to any other code in the current document. When you declare a variable within a function, it is called a local variable, because it is available only within that function.</p>
+      <p>JavaScript before ECMAScript 2015 does not have block statement scope; rather, a variable declared within a block is local to the function (or global scope) that the block resides within. For example the following code will log 5, because the scope of x is the function (or global context) within which x is declared, not the block, which in this case is an if statement.</p>
+      <code>
+        if (true)
+        {
+        var x = 5;
+        }
+        console.log(x); // 5
+
+        if (true) {
+        let y = 5;
+        }
+        console.log(y); // ReferenceError: y is not defined
+      </code>
+    </section>
+    <section class="main-section" id="Functions">
+      <header>Functions</header>
+      <p>Functions are one of the fundamental building blocks in JavaScript. A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output. To use a function, you must define it somewhere in the scope from which you wish to call it.</p>
+      <p>A function definition (also called a function declaration, or function statement) consists of the function keyword</p>
+      <code>
+        function myFunc(theObject) {
+        theObject.make = 'Toyota';
+        }
+
+        var mycar = {make: 'Honda', model: 'Accord', year: 1998};
+        var x, y;
+
+        x = mycar.make; // x gets the value "Honda"
+
+        myFunc(mycar);
+        y = mycar.make; // y gets the value "Toyota"
+        // (the make property was changed by the function)
+      </code>
+      <code>
+        function map(f, a) {
+        let result = []; // Create a new Array
+        let i; // Declare variable
+        for (i = 0; i != a.length; i++)
+        result[i] = f
+        return result;
+        }
+      </code>
+    </section>
+  </main>
+</div>
